@@ -1,11 +1,12 @@
 /****** Script for SelectTopNRows command from SSMS  ******/
 SELECT
-	TOP (1000) APM.SYSSystemID APM.Urn,
+	TOP (1000) FHA_ANALYTICS.FHA.F_MeditechADMPatMain.SYSSystemID,
+	FHA_ANALYTICS.FHA.F_MeditechADMPatMain.Urn,
 	Id,
 	AcctNumber,
 	Name,
 	STATUS,
-	CANREC.HealthCareNumber AS Phn,
+	FHA_ANALYTICS.FHA.F_MeditechADMPatCanadaRecall.HealthCareNumber AS Phn,
 	UnitNumber,
 	MriUrn,
 	Birthdate,
@@ -28,7 +29,7 @@ SELECT
 	OutpatientPriorLocation,
 	LoaStatus
 FROM
-	FHA_ANALYTICS.FHA.F_MeditechADMPatMain AS APM
-	INNER JOIN FHA_ANALYTICS.FHA.F_MeditechADMPatCanadaRecall AS CANREC ON CANREC.Urn = APM.Urn
+	FHA_ANALYTICS.FHA.F_MeditechADMPatMain
+	INNER JOIN FHA_ANALYTICS.FHA.F_MeditechADMPatCanadaRecall ON FHA_ANALYTICS.FHA.F_MeditechADMPatCanadaRecall.Urn = APM.Urn
 WHERE
 	ServiceDate > 20170101
