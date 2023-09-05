@@ -1,5 +1,5 @@
 SELECT
-  TOP (10000) FHA_ANALYTICS.FHA.F_MeditechPHARxMain.SYSSystemID,
+  TOP (1000) FHA_ANALYTICS.FHA.F_MeditechPHARxMain.SYSSystemID,
   --systemid assoc w/pt record from RXM = F_MeditechPHARxMain (e.g. 'RX Main')
   Number AS order_id,
   --renames the Number column to order_id
