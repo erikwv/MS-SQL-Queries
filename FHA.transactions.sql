@@ -1,11 +1,9 @@
 SELECT
 	TOP (10000) FHA_ANALYTICS.FHA.F_MeditechPHARxTransactions.SYSSystemID,
-	FHA_ANALYTICS.FHA.F_MeditechPHARxTransactions.Urn,
+	FHA_ANALYTICS.FHA.F_MeditechPHARxTransactions.Urn as order_id,
 	-- same as TxnRx (not Rx#)
 	TxnDate,
 	-- date YYYYMMDD
-	TxnQ,
-	-- sequential transaction number for the day
 	FHA_ANALYTICS.FHA.F_MeditechPHARxMain.Number,
 	FHA_ANALYTICS.FHA.D_MeditechPHADrugMain.Mnemonic,
 	FHA_ANALYTICS.FHA.D_MeditechPHADrugMain.NdcDinNumber,
@@ -44,6 +42,3 @@ FROM
 	INNER JOIN FHA_ANALYTICS.FHA.D_MeditechPHADrugMain ON FHA_ANALYTICS.FHA.D_MeditechPHADrugMain.Mnemonic = FHA_ANALYTICS.FHA.F_MeditechPHARxTransactions.TxnMed
 	INNER JOIN FHA_ANALYTICS.FHA.D_MeditechPHADrugMain5 ON FHA_ANALYTICS.FHA.D_MeditechPHADrugMain5.Mnemonic = FHA_ANALYTICS.FHA.F_MeditechPHARxTransactions.TxnMed
 	INNER JOIN FHA_ANALYTICS.FHA.F_MeditechPHARxMain ON FHA_ANALYTICS.FHA.F_MeditechPHARxMain.Urn = FHA_ANALYTICS.FHA.F_MeditechPHARxTransactions.Urn
-WHERE
-	FHA_ANALYTICS.FHA.F_MeditechPHARxTransactions.SYSSystemID = 'MC'
-	AND TxnDate > 20210101

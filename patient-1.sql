@@ -32,4 +32,5 @@ FROM
 	FHA_ANALYTICS.FHA.F_MeditechADMPatMain
 	INNER JOIN FHA_ANALYTICS.FHA.F_MeditechADMPatCanadaRecall ON FHA_ANALYTICS.FHA.F_MeditechADMPatCanadaRecall.Urn = APM.Urn
 WHERE
-	ServiceDate > 20170101
+	FHA_ANALYTICS.FHA.F_MeditechADMPatMain.SYSSystemID = 'MC'
+	AND ServiceDate > 20170101

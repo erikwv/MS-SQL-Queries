@@ -13,7 +13,7 @@ SELECT
   --selects Drug.Id column from 'Drug5' = (D_MeditechPHADrugMain5.DrugId)
   Sig,
   OrderType,
-  STATUS,
+  Status,
   Schedule,
   Route,
   EnterDate,
