@@ -1,6 +1,7 @@
 SELECT
-    TOP (10000) FHA_ANALYTICS.FHA.F_MeditechADMPatMain.SYSSystemID AS system_id,
-    FHA_ANALYTICS.FHA.F_MeditechADMPatMain.UnitNumber AS patient_id,
+    TOP (10000) 
+	F_MeditechADMPatMain.SYSSystemID AS system_id,
+    F_MeditechADMPatMain.UnitNumber AS patient_id,
     AcctNumber AS encounter_num,
     Name AS name_full,
     Status AS status,
@@ -20,6 +21,6 @@ SELECT
     DischargeDateTime AS discharge_datetime
 FROM
     FHA_ANALYTICS.FHA.F_MeditechADMPatMain
-    INNER JOIN FHA_ANALYTICS.FHA.F_MeditechADMPatCanadaRecall ON FHA_ANALYTICS.FHA.F_MeditechADMPatCanadaRecall.Urn = FHA_ANALYTICS.FHA.F_MeditechADMPatMain.Urn
+    INNER JOIN FHA_ANALYTICS.FHA.F_MeditechADMPatCanadaRecall ON F_MeditechADMPatCanadaRecall.Urn = F_MeditechADMPatMain.Urn
 WHERE
     ServiceDate > 20170101
